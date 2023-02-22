@@ -1,6 +1,3 @@
-
-
-
 // const movies = [
 //     {
 //       title: 'The Shawshank Redemption',
@@ -221,18 +218,21 @@
 - return an array of all the directors
 */
 
-/* "BUG 
-Brainfart right off the bat, unable to get a new array of directors
-was running something that was giving me undefined
-tried something else and ended up getting the values but jasmine tests failed
-*/
 function getAllDirectors(moviesArray) {
-    const allDirectors = moviesArray.map((director) => {
-        console.log(movies[0]);
-        return director
-        
-    }
-)}
+  // const allDirectors = moviesArray.map(function(person, index, array ) {
+  //     return person.director;
+  // })
+
+  const allDirectors = moviesArray.map((person) => person.director);
+  return allDirectors;
+}
+//     const allDirectors = [];
+//     moviesArray.forEach(function(people) {
+//         allDirectors.push(moviesArray.director);
+//     });
+//     return allDirectors
+// }
+// )}
 // getAllDirectors(movies)
 
 // Iteration 2: Steven Spielberg. The best? - How many drama movies did STEVEN SPIELBERG direct?
@@ -243,12 +243,25 @@ function getAllDirectors(moviesArray) {
 - return 0 if array is empty & if none are drama
 */
 function howManyMovies(moviesArray) {
-    const drama = moviesArray.filter(function (movie) {
-        if(moviesArray.includes('Steven Spielberg') && moviesArray.includes('Drama')) {
-            console.log();
-            return drama;
-        }
-    })
+    const dramaMovies = moviesArray.filter((genre) => moviesArray.genre === 'Drama')
+    return dramaMovies.length;  // Needs work, not passing three tests.
+
+    /*const dramaMovies = moviesArray.filter((genre) => {
+        if (moviesArray.director === "Steven Spielberg" && moviesArray.genre === "Drama");
+        return dramaMovies.length;
+    }) */ //  doesnt work
+    
+
+
+//   const drama = moviesArray.filter(function (movie) {
+//     if (
+//       moviesArray.includes("Steven Spielberg") &&
+//       moviesArray.includes("Drama")
+//     ) {
+//       console.log();
+//       return drama;
+//     }
+//   });
 }
 // howManyMovies(movies)
 // Iteration 3: All scores average - Get the average of all scores with 2 decimals
@@ -258,10 +271,8 @@ function howManyMovies(moviesArray) {
 - get average then by diving the sum by moviesArray.length
 */
 function scoresAverage(moviesArray) {
-    const avgRating = moviesArray.reduce((acc, curr) => {
-        console.log(acc + curr);
-        return acc + curr
-    })
+  const avgRating = moviesArray.reduce((previous, current) => previous + current.score, 0);
+  return avgRating;
 }
 
 // Iteration 4: Drama movies - Get the average of Drama Movies
