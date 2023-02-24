@@ -2001,3 +2001,7 @@ const movies = [
     score: 8
   }
 ];
+
+// console.log(.title);
+
+module.exports = movies; 
